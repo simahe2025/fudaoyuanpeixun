@@ -369,68 +369,92 @@ html {
     color: var(--text-white);
 }
 
-.tab.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--bg-primary);
-}
-
-.tab i {
-    font-size: var(--font-size-lg);
-}
-
-/* ====================================
-   内容区域样式
-   ==================================== */
-
-.content-container {
-    margin: 0 var(--spacing-lg) var(--spacing-lg);
-}
-
-.tab-content {
-    display: none;
-    background: var(--bg-primary);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-md);
-    overflow: hidden;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-.content-header {
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
-    padding: var(--spacing-lg);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.content-title {
-    font-size: var(--font-size-3xl);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-xs);
-}
-
-.content-subtitle {
-    color: var(--text-secondary);
-    font-size: var(--font-size-lg);
-}
-
-.content-body {
-    padding: var(--spacing-lg);
-}
-
-/* ====================================
-   简报卡片样式
-   ==================================== */
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/main.css b/css/main.css
+index fb4d7b06732fb0cb80f1f3d888f6b04fba0c61fe..075265c4c9441bc1e66c472a337f0dfde6da11c7 100644
+--- a/main.css
++++ b/css/main.css
+@@ -372,61 +372,66 @@ html {
+ .tab.active::after {
+     content: '';
+     position: absolute;
+     bottom: 0;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 0;
+     height: 0;
+     border-left: 8px solid transparent;
+     border-right: 8px solid transparent;
+     border-bottom: 8px solid var(--bg-primary);
+ }
+ 
+ .tab i {
+     font-size: var(--font-size-lg);
+ }
+ 
+ /* ====================================
+    内容区域样式
+    ==================================== */
+ 
+ .content-container {
+     margin: 0 var(--spacing-lg) var(--spacing-lg);
+ }
+ 
+-.tab-content {
+-    display: none;
+-    background: var(--bg-primary);
+-    border-radius: var(--border-radius);
+-    box-shadow: var(--shadow-md);
+-    overflow: hidden;
+-}
+-
+-.tab-content.active {
+-    display: block;
+-}
++.tab-content {
++    display: none;
++    background: var(--bg-primary);
++    border-radius: var(--border-radius);
++    box-shadow: var(--shadow-md);
++    overflow: hidden;
++    opacity: 0;
++    transform: translateY(10px);
++    transition: var(--transition);
++}
++
++.tab-content.active {
++    display: block;
++    opacity: 1;
++    transform: translateY(0);
++}
+ 
+ .content-header {
+     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+     padding: var(--spacing-lg);
+     border-bottom: 1px solid var(--border-color);
+ }
+ 
+ .content-title {
+     font-size: var(--font-size-3xl);
+     font-weight: 600;
+     color: var(--text-primary);
+     margin-bottom: var(--spacing-xs);
+ }
+ 
+ .content-subtitle {
+     color: var(--text-secondary);
+     font-size: var(--font-size-lg);
+ }
+ 
+ .content-body {
+     padding: var(--spacing-lg);
+ }
+ 
+ /* ====================================
+    简报卡片样式
+ 
+EOF
+)
 
 .report-card {
     background: var(--bg-primary);
@@ -640,4 +664,5 @@ html {
 .p-1 { padding: var(--spacing-xs); }
 .p-2 { padding: var(--spacing-sm); }
 .p-3 { padding: var(--spacing-md); }
+
 .p-4 { padding: var(--spacing-lg); }
