@@ -27,9 +27,28 @@
     <link rel="stylesheet" href="./css/animations.css">
     
     <style>
-        /* 页面加载优化 */
-        body { opacity: 0; transition: opacity 0.3s ease; }
-        body.loaded { opacity: 1; }
+        /* 基础样式重置 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        
+        /* 确保在CSS文件加载失败时基本样式仍然可用 */
+        .header { background: #c12c20; color: white; padding: 2rem 0; }
+        .header-content { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .logo-section { display: flex; align-items: center; gap: 1rem; }
+        .logo { width: 60px; height: 60px; border-radius: 50%; }
+        .header-stats { display: flex; gap: 1rem; }
+        .stat-item { text-align: center; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; }
+        .tabs { display: flex; background: white; border-radius: 8px; margin: 2rem; }
+        .tab { flex: 1; padding: 1rem; border: none; background: transparent; cursor: pointer; }
+        .tab.active { background: #c12c20; color: white; }
+        .tab-content { display: none; margin: 2rem; background: white; border-radius: 8px; padding: 2rem; }
+        .tab-content.active { display: block; }
     </style>
     
     <!-- 预连接到外部域名 -->
@@ -180,14 +199,337 @@
                         </div>
                     </article>
 
-                    <!-- 其他简报卡片继续... -->
-                    <!-- 为了节省空间，这里省略其他简报内容 -->
+                    <!-- 第2期简报 -->
+                    <article class="report-card">
+                        <header class="report-header">
+                            <h3 class="report-title">第2期简报</h3>
+                            <time class="report-date" datetime="2025-07-20">2025年7月20日</time>
+                        </header>
+                        <div class="report-content">
+                            <p>培训第二天，全体学员参加了多场专题讲座和分组讨论，深入探讨了家庭教育协同育人、师范生思想政治教育等重要议题。</p>
+                            
+                            <h4><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>专题讲座</h4>
+                            <p>李伟杰教授的《新时代高校家庭教育协同育人的实践》讲座，从理论和实践两个层面分析了家校协同育人的重要性和实施策略。张丰常教授的《学生发展与人才培养的政策融合》讲座，为学员们提供了政策解读和实践指导。</p>
+
+                            <h4><i class="fas fa-users" aria-hidden="true"></i>分组讨论</h4>
+                            <p>下午，学员们围绕"如何将准教师胜任力项目融入师范生思想政治教育"主题开展了热烈讨论，各小组积极交流，形成了许多有价值的观点和建议。</p>
+                        </div>
+                    </article>
+
+                    <!-- 第3期简报 -->
+                    <article class="report-card">
+                        <header class="report-header">
+                            <h3 class="report-title">第3期简报</h3>
+                            <time class="report-date" datetime="2025-07-21">2025年7月21日</time>
+                        </header>
+                        <div class="report-content">
+                            <p>培训第三天，全体学员走出课堂，通过现场教学的方式，深入了解改革开放的历史进程和高等教育的发展成就。</p>
+                            
+                            <h4><i class="fas fa-map-marker-alt" aria-hidden="true"></i>现场教学</h4>
+                            <p>上午，学员们参观了改革先锋——袁庚生平展，通过丰富的历史资料和珍贵文物，深入了解了改革开放的伟大历程。下午，参观中山大学深圳校区，考察了现代化的教育设施和先进的办学理念。</p>
+
+                            <h4><i class="fas fa-lightbulb" aria-hidden="true"></i>学习感悟</h4>
+                            <p>通过实地参观学习，学员们深刻感受到了改革开放的伟大成就和高等教育事业的蓬勃发展，进一步坚定了做好新时代思想政治工作的信心和决心。</p>
+                        </div>
+                    </article>
+
+                    <!-- 第4期简报 -->
+                    <article class="report-card">
+                        <header class="report-header">
+                            <h3 class="report-title">第4期简报</h3>
+                            <time class="report-date" datetime="2025-07-22">2025年7月22日</time>
+                        </header>
+                        <div class="report-content">
+                            <p>培训第四天，学员们继续通过现场教学和专题讲座的形式，深入学习党的历史和网络思政教育的发展脉络。</p>
+                            
+                            <h4><i class="fas fa-landmark" aria-hidden="true"></i>现场教学</h4>
+                            <p>上午，全体学员参观了深圳市党史馆和方志馆，通过详实的史料和生动的展示，深入了解了中国共产党的光辉历程和深圳特区的发展成就。</p>
+
+                            <h4><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>专题讲座</h4>
+                            <p>下午，李静教授作《党的二十大——网络思想政治教育的历史沿革和启示》专题讲座，从历史和现实的角度分析了网络思政教育的发展趋势和创新方向。</p>
+
+                            <h4><i class="fas fa-users" aria-hidden="true"></i>分组讨论</h4>
+                            <p>晚上，学员们围绕"如何推进'师生共生、内外联动'的思想政治生态"主题开展了深入讨论，形成了多项可行性建议。</p>
+                        </div>
+                    </article>
                 </div>
             </section>
 
-            <!-- 其他标签页内容 -->
-            <!-- 小组风采、培训课程、图片集锦、培训总结等部分保持原有结构 -->
-            <!-- 在实际文件中会包含完整内容 -->
+            <!-- 小组风采 -->
+            <section id="groups" 
+                     class="tab-content" 
+                     role="tabpanel" 
+                     aria-labelledby="tab-groups">
+                <div class="content-header">
+                    <h2 class="content-title">小组风采</h2>
+                    <p class="content-subtitle">展示四个学习小组的团队风貌和学习成果</p>
+                </div>
+                <div class="content-body">
+                    <div class="group-grid">
+                        <div class="group-card">
+                            <div class="group-header">
+                                <div class="group-number">第一小组</div>
+                                <div class="group-leader">组长：游毅文</div>
+                            </div>
+                            <div class="group-body">
+                                <div class="group-motto">"学思践悟，知行合一"</div>
+                                <div class="group-description">
+                                    第一小组由来自不同院系的11名辅导员组成，大家在培训中积极参与，认真学习，展现了良好的精神风貌。小组负责7月19日培训内容的简报工作，全体成员通力合作，高质量完成了任务。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group-card">
+                            <div class="group-header">
+                                <div class="group-number">第二小组</div>
+                                <div class="group-leader">组长：谢楠</div>
+                            </div>
+                            <div class="group-body">
+                                <div class="group-motto">"凝心聚力，共创未来"</div>
+                                <div class="group-description">
+                                    第二小组成员来自各个学院，专业背景多元，在培训中充分发挥各自优势，积极参与讨论和交流。小组负责7月20日培训内容的简报工作，以严谨的态度和创新的思维完成了任务。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group-card">
+                            <div class="group-header">
+                                <div class="group-number">第三小组</div>
+                                <div class="group-leader">组长：郑小苗</div>
+                            </div>
+                            <div class="group-body">
+                                <div class="group-motto">"砥砺前行，不负韶华"</div>
+                                <div class="group-description">
+                                    第三小组成员团结协作，思想活跃，在培训中表现出色。小组负责7月21日培训内容的简报工作，通过精心记录和生动描述，全面展现了现场教学的收获和体会。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="group-card">
+                            <div class="group-header">
+                                <div class="group-number">第四小组</div>
+                                <div class="group-leader">组长：王慧瑶</div>
+                            </div>
+                            <div class="group-body">
+                                <div class="group-motto">"立德树人，铸魂育才"</div>
+                                <div class="group-description">
+                                    第四小组成员思想深刻，表达能力强，在培训中积极思考和发言。小组负责7月22日培训内容的简报工作，通过细致观察和深入思考，生动记录了培训活动的精彩瞬间。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 培训课程 -->
+            <section id="schedule" 
+                     class="tab-content" 
+                     role="tabpanel" 
+                     aria-labelledby="tab-schedule">
+                <div class="content-header">
+                    <h2 class="content-title">培训课程</h2>
+                    <p class="content-subtitle">详细的培训课程安排和授课专家信息</p>
+                </div>
+                <div class="content-body">
+                    <div class="schedule-wrapper">
+                        <table class="schedule-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">日期</th>
+                                    <th scope="col">时间</th>
+                                    <th scope="col">授课教师</th>
+                                    <th scope="col">课程内容</th>
+                                    <th scope="col">地点</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="2">7月19日<br>星期六</td>
+                                    <td>9:00-13:00</td>
+                                    <td>梁西廷</td>
+                                    <td>《新时代辅导员队伍建设：以新发展理念引领德育人才雁阵格局》</td>
+                                    <td>承2-501</td>
+                                </tr>
+                                <tr>
+                                    <td>15:00-17:30</td>
+                                    <td>苏少丹</td>
+                                    <td>《高校网络思想政治工作的实践路径探索——案例呈现与品牌打造》</td>
+                                    <td>承2-501</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">7月20日<br>星期日</td>
+                                    <td>09:00-12:00</td>
+                                    <td>李伟杰</td>
+                                    <td>《新时代高校家庭教育协同育人的实践》</td>
+                                    <td>承2-501</td>
+                                </tr>
+                                <tr>
+                                    <td>14:00-17:30</td>
+                                    <td>班主任</td>
+                                    <td>分组讨论：《参考意见：如何将准教师胜任力项目融入师范生思想政治教育》</td>
+                                    <td>承2-501</td>
+                                </tr>
+                                <tr>
+                                    <td>19:00-20:30</td>
+                                    <td>张丰常</td>
+                                    <td>《学生发展与人才培养的政策融合》</td>
+                                    <td>承2-501</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">7月21日<br>星期一</td>
+                                    <td>09:00-12:00</td>
+                                    <td>周美利</td>
+                                    <td>现场教学：改革先锋——袁庚生平展</td>
+                                    <td>现场</td>
+                                </tr>
+                                <tr>
+                                    <td>13:30-17:30</td>
+                                    <td>班主任</td>
+                                    <td>现场教学：参观中山大学深圳校区</td>
+                                    <td>现场</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">7月22日<br>星期二</td>
+                                    <td>09:00-12:00</td>
+                                    <td>班主任</td>
+                                    <td>现场教学：深圳市党史馆+深圳市方志馆</td>
+                                    <td>现场</td>
+                                </tr>
+                                <tr>
+                                    <td>15:00-17:30</td>
+                                    <td>李静</td>
+                                    <td>《党的二十大——网络思想政治教育的历史沿革和启示》</td>
+                                    <td>承2-501</td>
+                                </tr>
+                                <tr>
+                                    <td>19:00-20:30</td>
+                                    <td>班主任</td>
+                                    <td>分组讨论：《参考意见：如何推进"师生共生、内外联动"的思想政治生态》</td>
+                                    <td>承2-501</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">7月23日<br>星期三</td>
+                                    <td>09:00-11:30</td>
+                                    <td>班主任</td>
+                                    <td>《新时代高校辅导员安全、突发事件的情景模拟》</td>
+                                    <td>承2-501</td>
+                                </tr>
+                                <tr>
+                                    <td>14:00-18:00</td>
+                                    <td>班主任</td>
+                                    <td>返程</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 图片集锦 -->
+            <section id="photos" 
+                     class="tab-content" 
+                     role="tabpanel" 
+                     aria-labelledby="tab-photos">
+                <div class="content-header">
+                    <h2 class="content-title">图片集锦</h2>
+                    <p class="content-subtitle">记录培训班精彩瞬间和美好回忆</p>
+                </div>
+                <div class="content-body">
+                    <div class="photo-gallery">
+                        <div class="photo-item">
+                            <img src="https://via.placeholder.com/400x300/c12c20/ffffff?text=开班仪式" 
+                                 alt="开班仪式现场，全体学员齐聚一堂"
+                                 loading="lazy">
+                            <div class="photo-overlay">
+                                <div class="photo-title">开班仪式</div>
+                                <div class="photo-description">培训班正式开班，全体学员齐聚一堂</div>
+                            </div>
+                        </div>
+                        <div class="photo-item">
+                            <img src="https://via.placeholder.com/400x300/0984e3/ffffff?text=专题讲座" 
+                                 alt="专家学者为学员们带来精彩讲座"
+                                 loading="lazy">
+                            <div class="photo-overlay">
+                                <div class="photo-title">专题讲座</div>
+                                <div class="photo-description">专家学者为学员们带来精彩讲座</div>
+                            </div>
+                        </div>
+                        <div class="photo-item">
+                            <img src="https://via.placeholder.com/400x300/00b894/ffffff?text=分组讨论" 
+                                 alt="学员们积极参与小组讨论交流"
+                                 loading="lazy">
+                            <div class="photo-overlay">
+                                <div class="photo-title">分组讨论</div>
+                                <div class="photo-description">学员们积极参与小组讨论交流</div>
+                            </div>
+                        </div>
+                        <div class="photo-item">
+                            <img src="https://via.placeholder.com/400x300/e17055/ffffff?text=现场教学" 
+                                 alt="参观袁庚生平展，感受改革开放历程"
+                                 loading="lazy">
+                            <div class="photo-overlay">
+                                <div class="photo-title">现场教学</div>
+                                <div class="photo-description">参观袁庚生平展，感受改革开放历程</div>
+                            </div>
+                        </div>
+                        <div class="photo-item">
+                            <img src="https://via.placeholder.com/400x300/fdcb6e/ffffff?text=校园参观" 
+                                 alt="参观中山大学深圳校区美丽校园"
+                                 loading="lazy">
+                            <div class="photo-overlay">
+                                <div class="photo-title">校园参观</div>
+                                <div class="photo-description">参观中山大学深圳校区美丽校园</div>
+                            </div>
+                        </div>
+                        <div class="photo-item">
+                            <img src="https://via.placeholder.com/400x300/74b9ff/ffffff?text=党史学习" 
+                                 alt="深圳市党史馆参观学习"
+                                 loading="lazy">
+                            <div class="photo-overlay">
+                                <div class="photo-title">党史学习</div>
+                                <div class="photo-description">深圳市党史馆参观学习</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 培训总结 -->
+            <section id="summary" 
+                     class="tab-content" 
+                     role="tabpanel" 
+                     aria-labelledby="tab-summary">
+                <div class="content-header">
+                    <h2 class="content-title">培训总结</h2>
+                    <p class="content-subtitle">全面总结培训成果和学员收获</p>
+                </div>
+                <div class="content-body">
+                    <div class="report-content">
+                        <p>2025年7月19日至23日，广东第二师范学院"智慧党建引领 网络思政赋能"辅导员队伍赋能提升培训班在中山大学高校思想政治工作研修中心(深圳校区)成功举办。本次培训共有44名辅导员参加，通过专题讲座、案例分析、现场教学、实操演练等多种形式，全面提升了我校思政干部队伍的政治素养、业务能力和工作水平。</p>
+                        
+                        <div class="highlight-box">
+                            <h4><i class="fas fa-trophy" aria-hidden="true"></i>培训亮点</h4>
+                            <p>本次培训紧紧围绕"智慧党建引领 网络思政赋能"主题，聚焦新时代辅导员队伍建设、网络思想政治工作、家庭教育协同育人等热点问题，通过理论学习与实践考察相结合，有效提升了辅导员队伍的专业素养和工作能力。</p>
+                        </div>
+                        
+                        <h4><i class="fas fa-chart-bar" aria-hidden="true"></i>培训成效</h4>
+                        <p>培训期间，学员们认真学习、积极思考、深入交流，展现了良好的学习态度和精神风貌。通过此次培训，大家进一步明确了新时代辅导员的职责使命，掌握了网络思政工作的新理念新方法，为今后更好地开展学生思想政治教育工作奠定了坚实基础。</p>
+                        
+                        <h4><i class="fas fa-lightbulb" aria-hidden="true"></i>主要收获</h4>
+                        <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                            <li>深化了对新时代辅导员队伍建设重要性的认识</li>
+                            <li>掌握了网络思政工作的创新理念和实践方法</li>
+                            <li>增强了家校协同育人的意识和能力</li>
+                            <li>提升了应对突发事件和安全管理的能力</li>
+                            <li>加强了团队协作和交流学习的意识</li>
+                        </ul>
+                        
+                        <h4><i class="fas fa-rocket" aria-hidden="true"></i>未来展望</h4>
+                        <p>培训结束后，全体学员纷纷表示，将把培训中学到的新思路、新方法运用到实际工作中，不断提高思想政治工作水平，为培养德智体美劳全面发展的社会主义建设者和接班人贡献力量。学校将继续加强辅导员队伍建设，为思想政治工作高质量发展提供有力支撑。</p>
+                    </div>
+                </div>
+            </section>
             
         </div>
     </main>
@@ -226,6 +568,43 @@
     </button>
 
     <!-- JavaScript文件 -->
+    <script>
+        // 基础标签页切换功能
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            // 隐藏所有标签内容
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // 移除所有标签的活动状态
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+                tablinks[i].setAttribute('aria-selected', 'false');
+            }
+            
+            // 显示当前标签内容并设置按钮为活动状态
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+            evt.currentTarget.setAttribute('aria-selected', 'true');
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('页面加载完成');
+            
+            // 确保第一个标签页为活动状态
+            var firstTab = document.querySelector('.tab');
+            var firstContent = document.querySelector('.tab-content');
+            if (firstTab && firstContent) {
+                firstTab.classList.add('active');
+                firstContent.classList.add('active');
+            }
+        });
+    </script>
     <script src="./js/utils.js"></script>
     <script src="./js/tabs.js"></script>
     <script src="./js/main.js"></script>
