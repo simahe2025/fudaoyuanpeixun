@@ -1,0 +1,546 @@
+/* ====================================
+   动画效果样式文件 - animations.css
+   智慧党建引领 网络思政赋能 - 辅导员培训班网站
+   ==================================== */
+
+/* ====================================
+   关键帧动画定义
+   ==================================== */
+
+/* 淡入动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 滑入动画 */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 从左滑入 */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 从右滑入 */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 缩放动画 */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 脉冲动画 */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 弹跳动画 */
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transform: translate3d(0,0,0);
+    }
+    40%, 43% {
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        transform: translate3d(0, -10px, 0);
+    }
+    70% {
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        transform: translate3d(0, -5px, 0);
+    }
+    90% {
+        transform: translate3d(0,-2px,0);
+    }
+}
+
+/* 旋转动画 */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 摇摆动画 */
+@keyframes wobble {
+    0% {
+        transform: translateX(0%);
+    }
+    15% {
+        transform: translateX(-5px) rotate(-5deg);
+    }
+    30% {
+        transform: translateX(4px) rotate(3deg);
+    }
+    45% {
+        transform: translateX(-3px) rotate(-3deg);
+    }
+    60% {
+        transform: translateX(2px) rotate(2deg);
+    }
+    75% {
+        transform: translateX(-1px) rotate(-1deg);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/* 打字机效果 */
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* 闪烁光标 */
+@keyframes blink {
+    from {
+        border-right-color: rgba(255,255,255,0.75);
+    }
+    to {
+        border-right-color: transparent;
+    }
+}
+
+/* 浮动动画 */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* 渐变背景动画 */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ====================================
+   页面加载动画
+   ==================================== */
+
+/* 页面淡入 */
+.page-fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* 延迟动画类 */
+.animate-delay-1 {
+    animation-delay: 0.1s;
+}
+
+.animate-delay-2 {
+    animation-delay: 0.2s;
+}
+
+.animate-delay-3 {
+    animation-delay: 0.3s;
+}
+
+.animate-delay-4 {
+    animation-delay: 0.4s;
+}
+
+.animate-delay-5 {
+    animation-delay: 0.5s;
+}
+
+/* ====================================
+   组件动画
+   ==================================== */
+
+/* 标签页内容动画 */
+.tab-content.active {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* 卡片悬停动画 */
+.report-card,
+.group-card,
+.photo-item {
+    transition: var(--transition);
+}
+
+.report-card:hover,
+.group-card:hover,
+.photo-item:hover {
+    animation: pulse 0.6s ease-in-out;
+}
+
+/* 统计数字动画 */
+.stat-number {
+    animation: scaleIn 0.6s ease-out;
+}
+
+.stat-number.animate {
+    animation: bounce 1s ease-in-out;
+}
+
+/* 信息栏项目动画 */
+.info-item {
+    animation: slideInLeft 0.5s ease-out;
+}
+
+.info-item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.info-item:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+/* 标签按钮动画 */
+.tab {
+    position: relative;
+    overflow: hidden;
+}
+
+.tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: var(--transition);
+}
+
+.tab:hover::before {
+    left: 100%;
+}
+
+/* 按钮点击动画 */
+.tab:active {
+    transform: scale(0.98);
+}
+
+/* ====================================
+   滚动动画
+   ==================================== */
+
+/* 滚动触发的动画类 */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.scroll-animate.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 滚动视差效果 */
+.parallax {
+    transform: translateY(0);
+    transition: transform 0.1s ease-out;
+}
+
+/* ====================================
+   交互动画
+   ==================================== */
+
+/* 按钮悬停效果 */
+.btn-hover-effect {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-hover-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    transform: translateX(-100%);
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.btn-hover-effect:hover::before {
+    transform: translateX(0);
+}
+
+/* 链接下划线动画 */
+.link-underline {
+    position: relative;
+    text-decoration: none;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease-out;
+}
+
+.link-underline:hover::after {
+    width: 100%;
+}
+
+/* ====================================
+   加载动画
+   ==================================== */
+
+/* 加载器旋转 */
+.loader {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+/* 点加载器 */
+.dots-loader {
+    display: inline-block;
+}
+
+.dots-loader::after {
+    content: '...';
+    animation: blink 1.5s infinite;
+}
+
+/* 进度条动画 */
+.progress-bar {
+    position: relative;
+    background: var(--bg-tertiary);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    border-radius: 10px;
+    transition: width 1s ease-out;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        to right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.3) 50%,
+        rgba(255,255,255,0) 100%
+    );
+    animation: slideInRight 2s infinite;
+}
+
+/* ====================================
+   特殊效果动画
+   ==================================== */
+
+/* 光晕效果 */
+.glow-effect {
+    position: relative;
+}
+
+.glow-effect::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-light), var(--accent-color));
+    border-radius: var(--border-radius);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    z-index: -1;
+    filter: blur(5px);
+}
+
+.glow-effect:hover::before {
+    opacity: 0.7;
+}
+
+/* 文字打字机效果 */
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid rgba(255,255,255,0.75);
+    white-space: nowrap;
+    animation: 
+        typewriter 4s steps(40, end),
+        blink 0.75s step-end infinite;
+}
+
+/* 浮动标签效果 */
+.floating-label {
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* 粒子背景动画 */
+.particles-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.particles-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.3)"><animate attributeName="r" values="1;2;1" dur="3s" repeatCount="indefinite"/></circle><circle cx="80" cy="30" r="1" fill="rgba(255,255,255,0.2)"><animate attributeName="r" values="1;1.5;1" dur="2s" repeatCount="indefinite"/></circle><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.25)"><animate attributeName="r" values="1;2.5;1" dur="4s" repeatCount="indefinite"/></circle></svg>');
+    opacity: 0.3;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* ====================================
+   响应式动画调整
+   ==================================== */
+
+/* 移动设备上减少动画 */
+@media (max-width: 768px) {
+    .tab-content.active {
+        animation-duration: 0.3s;
+    }
+    
+    .scroll-animate {
+        animation-duration: 0.4s;
+    }
+    
+    .report-card:hover,
+    .group-card:hover,
+    .photo-item:hover {
+        animation: none;
+        transform: translateY(-2px);
+    }
+}
+
+/* 高性能模式 - 减少复杂动画 */
+@media (prefers-reduced-motion: reduce) {
+    .typewriter {
+        animation: none;
+        border-right: none;
+    }
+    
+    .floating-label {
+        animation: none;
+    }
+    
+    .particles-bg::before {
+        animation: none;
+    }
+    
+    .glow-effect::before {
+        display: none;
+    }
+}
+
+/* ====================================
+   工具类动画
+   ==================================== */
+
+/* 快速动画类 */
+.animate-fast { animation-duration: 0.2s !important; }
+.animate-slow { animation-duration: 1s !important; }
+
+/* 动画状态类 */
+.animate-pause { animation-play-state: paused !important; }
+.animate-running { animation-play-state: running !important; }
+
+/* 动画方向类 */
+.animate-reverse { animation-direction: reverse !important; }
+.animate-alternate { animation-direction: alternate !important; }
+
+/* 无限循环动画 */
+.animate-infinite { animation-iteration-count: infinite !important; }
+
+/* 一次性动画 */
+.animate-once { animation-iteration-count: 1 !important; }
+
+/* 常用动画效果类 */
+.fade-in { animation: fadeIn 0.5s ease-out; }
+.slide-in { animation: slideIn 0.5s ease-out; }
+.scale-in { animation: scaleIn 0.5s ease-out; }
+.bounce-in { animation: bounce 1s ease-out; }
+
+/* 悬停动画类 */
+.hover-pulse:hover { animation: pulse 0.6s ease-in-out; }
+.hover-wobble:hover { animation: wobble 0.8s ease-in-out; }
+.hover-float:hover { animation: float 2s ease-in-out infinite; }
