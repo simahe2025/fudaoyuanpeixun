@@ -103,75 +103,92 @@
                         <span class="stat-label">学习小组</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- 信息栏 -->
-    <section class="info-bar-section" aria-label="培训基本信息">
-        <div class="container">
-            <div class="info-bar">
-                <div class="info-item">
-                    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                    <span><strong>培训时间：</strong>2025年7月19日-7月23日</span>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                    <span><strong>培训地点：</strong>中山大学高校思想政治工作研修中心(深圳校区)</span>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
-                    <span><strong>承办单位：</strong>中山大学高校思想政治工作研修中心</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 主要内容 -->
-    <main id="main-content" role="main">
-        <!-- 导航标签 -->
-        <nav class="tabs-container" role="navigation" aria-label="主要内容导航">
-            <div class="tabs" role="tablist">
-                <button class="tab active" 
-                        role="tab" 
-                        aria-selected="true" 
-                        aria-controls="daily-reports"
-                        id="tab-daily-reports"
-                        onclick="openTab(event, 'daily-reports')">
-                    <i class="fas fa-newspaper" aria-hidden="true"></i>
-                    <span>每日简报</span>
-                </button>
-                <button class="tab" 
-                        role="tab" 
-                        aria-selected="false" 
-                        aria-controls="groups"
-                        id="tab-groups"
-                        onclick="openTab(event, 'groups')">
-                    <i class="fas fa-users" aria-hidden="true"></i>
-                    <span>小组风采</span>
-                </button>
-                <button class="tab" 
-                        role="tab" 
-                        aria-selected="false" 
-                        aria-controls="schedule"
-                        id="tab-schedule"
-                        onclick="openTab(event, 'schedule')">
-                    <i class="fas fa-calendar-check" aria-hidden="true"></i>
-                    <span>培训课程</span>
-                </button>
-                <button class="tab" 
-                        role="tab" 
-                        aria-selected="false" 
-                        aria-controls="photos"
-                        id="tab-photos"
-                        onclick="openTab(event, 'photos')">
-                    <i class="fas fa-images" aria-hidden="true"></i>
-                    <span>图片集锦</span>
-                </button>
-                <button class="tab" 
-                        role="tab" 
-                        aria-selected="false" 
-                        aria-controls="summary"
+        (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/main.css b/css/main.css
+index fb4d7b06732fb0cb80f1f3d888f6b04fba0c61fe..075265c4c9441bc1e66c472a337f0dfde6da11c7 100644
+--- a/main.css
++++ b/css/main.css
+@@ -372,61 +372,66 @@ html {
+ .tab.active::after {
+     content: '';
+     position: absolute;
+     bottom: 0;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 0;
+     height: 0;
+     border-left: 8px solid transparent;
+     border-right: 8px solid transparent;
+     border-bottom: 8px solid var(--bg-primary);
+ }
+ 
+ .tab i {
+     font-size: var(--font-size-lg);
+ }
+ 
+ /* ====================================
+    内容区域样式
+    ==================================== */
+ 
+ .content-container {
+     margin: 0 var(--spacing-lg) var(--spacing-lg);
+ }
+ 
+-.tab-content {
+-    display: none;
+-    background: var(--bg-primary);
+-    border-radius: var(--border-radius);
+-    box-shadow: var(--shadow-md);
+-    overflow: hidden;
+-}
+-
+-.tab-content.active {
+-    display: block;
+-}
++.tab-content {
++    display: none;
++    background: var(--bg-primary);
++    border-radius: var(--border-radius);
++    box-shadow: var(--shadow-md);
++    overflow: hidden;
++    opacity: 0;
++    transform: translateY(10px);
++    transition: var(--transition);
++}
++
++.tab-content.active {
++    display: block;
++    opacity: 1;
++    transform: translateY(0);
++}
+ 
+ .content-header {
+     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+     padding: var(--spacing-lg);
+     border-bottom: 1px solid var(--border-color);
+ }
+ 
+ .content-title {
+     font-size: var(--font-size-3xl);
+     font-weight: 600;
+     color: var(--text-primary);
+     margin-bottom: var(--spacing-xs);
+ }
+ 
+ .content-subtitle {
+     color: var(--text-secondary);
+     font-size: var(--font-size-lg);
+ }
+ 
+ .content-body {
+     padding: var(--spacing-lg);
+ }
+ 
+ /* ====================================
+    简报卡片样式
+ 
+EOF
+)
                         id="tab-summary"
                         onclick="openTab(event, 'summary')">
                     <i class="fas fa-chart-line" aria-hidden="true"></i>
@@ -620,12 +637,7 @@
     <!-- 页脚 -->
     <footer class="footer" role="contentinfo">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>关于培训班</h3>
-                    <p>广东第二师范学院"智慧党建引领 网络思政赋能"辅导员队伍赋能提升培训班旨在提升辅导员队伍的政治素养、业务能力和工作水平，为学校思想政治工作高质量发展提供有力支撑。</p>
-                </div>
-                <div class="footer-section">
+          <div class="footer-section">
                     <h3>联系方式</h3>
                     <address>
                         <p><i class="fas fa-user" aria-hidden="true"></i>联系人：王慧琳</p>
@@ -688,6 +700,7 @@
             }
         });
     </script>
+    <!-- JavaScript文件 -->
     <script src="./js/utils.js"></script>
     <script src="./js/tabs.js"></script>
     <script src="./js/main.js"></script>
@@ -713,10 +726,3 @@
         },
         "organizer": {
             "@type": "Organization",
-            "name": "广东第二师范学院",
-            "url": "https://www.gdei.edu.cn"
-        }
-    }
-    </script>
-</body>
-</html>
