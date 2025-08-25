@@ -49,6 +49,21 @@
         .tab.active { background: #c12c20; color: white; }
         .tab-content { display: none; margin: 2rem; background: white; border-radius: 8px; padding: 2rem; }
         .tab-content.active { display: block; }
+        
+        /* 表格样式 */
+        .data-table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .data-table th, .data-table td { padding: 1rem; text-align: left; border-bottom: 1px solid #e9ecef; }
+        .data-table th { background: #c12c20; color: white; font-weight: 600; }
+        .data-table tr:hover { background: #f8f9fa; }
+        .data-table tr:last-child td { border-bottom: none; }
+        .status-badge { padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
+        .status-completed { background: #d4edda; color: #155724; }
+        .status-highlight { background: #fff3cd; color: #856404; }
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+        .photo-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .photo-card img { width: 100%; height: 200px; object-fit: cover; }
+        .photo-card-content { padding: 1rem; }
+        .content-grid { display: grid; gap: 2rem; }
     </style>
     
     <!-- 预连接到外部域名 -->
@@ -177,81 +192,80 @@
                     <p class="content-subtitle">记录培训班每日精彩活动和学习成果</p>
                 </div>
                 <div class="content-body">
-                    <!-- 简报卡片内容保持不变 -->
-                    <article class="report-card">
-                        <header class="report-header">
-                            <h3 class="report-title">第1期简报</h3>
-                            <time class="report-date" datetime="2025-07-19">2025年7月19日</time>
-                        </header>
-                        <div class="report-content">
-                            <p>7月19日，广东第二师范学院"智慧党建引领 网络思政赋能"辅导员队伍赋能提升培训班在中山大学高校思想政治工作研修中心(深圳校区)正式开班。</p>
-                            
-                            <div class="highlight-box">
-                                <h4><i class="fas fa-star" aria-hidden="true"></i>今日亮点</h4>
-                                <p>梁西廷教授的《新时代辅导员队伍建设：以新发展理念引领德育人才雁阵格局》讲座，从理论与实践相结合的角度，深入阐述了新时代辅导员队伍建设的重要性和创新路径。</p>
-                            </div>
+                    <!-- 每日简报表格 -->
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 100px;">期数</th>
+                                <th style="width: 120px;">日期</th>
+                                <th>主要内容</th>
+                                <th>亮点活动</th>
+                                <th style="width: 80px;">状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>第1期</strong></td>
+                                <td>7月19日<br><small>星期六</small></td>
+                                <td>
+                                    <strong>开班仪式</strong><br>
+                                    • 梁西廷：《新时代辅导员队伍建设：以新发展理念引领德育人才雁阵格局》<br>
+                                    • 苏少丹：《高校网络思想政治工作的实践路径探索——案例呈现与品牌打造》
+                                </td>
+                                <td>
+                                    <strong>今日亮点：</strong>从理论与实践相结合的角度，深入阐述了新时代辅导员队伍建设的重要性和创新路径<br>
+                                    <strong>学员体会：</strong>游毅文分享学习收获，认识到辅导员队伍建设的重要性
+                                </td>
+                                <td><span class="status-badge status-completed">已完成</span></td>
+                            </tr>
 
-                            <h4><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>专题讲座</h4>
-                            <p>上午，梁西廷教授为全体学员作专题讲座，系统阐述了新时代辅导员队伍建设的核心理念和实践路径。下午，苏少丹教授分享了《高校网络思想政治工作的实践路径探索——案例呈现与品牌打造》，为学员们提供了丰富的实践案例和创新思路。</p>
-
-                            <h4><i class="fas fa-comments" aria-hidden="true"></i>学员体会</h4>
-                            <p><strong>学员游毅文分享到：</strong>通过今天的学习，深刻认识到新时代辅导员队伍建设的重要性。梁教授的讲座为我们指明了专业化发展的方向，苏教授的案例分享让我们看到了网络思政工作的无限可能。</p>
-                        </div>
-                    </article>
-
-                    <!-- 第2期简报 -->
-                    <article class="report-card">
-                        <header class="report-header">
-                            <h3 class="report-title">第2期简报</h3>
-                            <time class="report-date" datetime="2025-07-20">2025年7月20日</time>
-                        </header>
-                        <div class="report-content">
-                            <p>培训第二天，全体学员参加了多场专题讲座和分组讨论，深入探讨了家庭教育协同育人、师范生思想政治教育等重要议题。</p>
-                            
-                            <h4><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>专题讲座</h4>
-                            <p>李伟杰教授的《新时代高校家庭教育协同育人的实践》讲座，从理论和实践两个层面分析了家校协同育人的重要性和实施策略。张丰常教授的《学生发展与人才培养的政策融合》讲座，为学员们提供了政策解读和实践指导。</p>
-
-                            <h4><i class="fas fa-users" aria-hidden="true"></i>分组讨论</h4>
-                            <p>下午，学员们围绕"如何将准教师胜任力项目融入师范生思想政治教育"主题开展了热烈讨论，各小组积极交流，形成了许多有价值的观点和建议。</p>
-                        </div>
-                    </article>
-
-                    <!-- 第3期简报 -->
-                    <article class="report-card">
-                        <header class="report-header">
-                            <h3 class="report-title">第3期简报</h3>
-                            <time class="report-date" datetime="2025-07-21">2025年7月21日</time>
-                        </header>
-                        <div class="report-content">
-                            <p>培训第三天，全体学员走出课堂，通过现场教学的方式，深入了解改革开放的历史进程和高等教育的发展成就。</p>
-                            
-                            <h4><i class="fas fa-map-marker-alt" aria-hidden="true"></i>现场教学</h4>
-                            <p>上午，学员们参观了改革先锋——袁庚生平展，通过丰富的历史资料和珍贵文物，深入了解了改革开放的伟大历程。下午，参观中山大学深圳校区，考察了现代化的教育设施和先进的办学理念。</p>
-
-                            <h4><i class="fas fa-lightbulb" aria-hidden="true"></i>学习感悟</h4>
-                            <p>通过实地参观学习，学员们深刻感受到了改革开放的伟大成就和高等教育事业的蓬勃发展，进一步坚定了做好新时代思想政治工作的信心和决心。</p>
-                        </div>
-                    </article>
-
-                    <!-- 第4期简报 -->
-                    <article class="report-card">
-                        <header class="report-header">
-                            <h3 class="report-title">第4期简报</h3>
-                            <time class="report-date" datetime="2025-07-22">2025年7月22日</time>
-                        </header>
-                        <div class="report-content">
-                            <p>培训第四天，学员们继续通过现场教学和专题讲座的形式，深入学习党的历史和网络思政教育的发展脉络。</p>
-                            
-                            <h4><i class="fas fa-landmark" aria-hidden="true"></i>现场教学</h4>
-                            <p>上午，全体学员参观了深圳市党史馆和方志馆，通过详实的史料和生动的展示，深入了解了中国共产党的光辉历程和深圳特区的发展成就。</p>
-
-                            <h4><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>专题讲座</h4>
-                            <p>下午，李静教授作《党的二十大——网络思想政治教育的历史沿革和启示》专题讲座，从历史和现实的角度分析了网络思政教育的发展趋势和创新方向。</p>
-
-                            <h4><i class="fas fa-users" aria-hidden="true"></i>分组讨论</h4>
-                            <p>晚上，学员们围绕"如何推进'师生共生、内外联动'的思想政治生态"主题开展了深入讨论，形成了多项可行性建议。</p>
-                        </div>
-                    </article>
+                            <tr>
+                                <td><strong>第2期</strong></td>
+                                <td>7月20日<br><small>星期日</small></td>
+                                <td>
+                                    <strong>专题讲座与分组讨论</strong><br>
+                                    • 李伟杰：《新时代高校家庭教育协同育人的实践》<br>
+                                    • 张丰常：《学生发展与人才培养的政策融合》<br>
+                                    • 分组讨论：准教师胜任力项目融入师范生思政教育
+                                </td>
+                                <td>
+                                    <strong>重点议题：</strong>家庭教育协同育人、师范生思想政治教育<br>
+                                    <strong>讨论成果：</strong>各小组积极交流，形成了许多有价值的观点和建议
+                                </td>
+                                <td><span class="status-badge status-completed">已完成</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>第3期</strong></td>
+                                <td>7月21日<br><small>星期一</small></td>
+                                <td>
+                                    <strong>现场教学</strong><br>
+                                    • 上午：改革先锋——袁庚生平展<br>
+                                    • 下午：参观中山大学深圳校区
+                                </td>
+                                <td>
+                                    <strong>学习感悟：</strong>深刻感受改革开放的伟大成就和高等教育事业的蓬勃发展<br>
+                                    <strong>教育意义：</strong>进一步坚定了做好新时代思想政治工作的信心和决心
+                                </td>
+                                <td><span class="status-badge status-completed">已完成</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>第4期</strong></td>
+                                <td>7月22日<br><small>星期二</small></td>
+                                <td>
+                                    <strong>现场教学与专题讲座</strong><br>
+                                    • 上午：深圳市党史馆+方志馆参观<br>
+                                    • 下午：李静《党的二十大——网络思想政治教育的历史沿革和启示》<br>
+                                    • 晚上：分组讨论"师生共生、内外联动"思想政治生态
+                                </td>
+                                <td>
+                                    <strong>党史学习：</strong>了解中国共产党的光辉历程和深圳特区发展成就<br>
+                                    <strong>理论提升：</strong>分析网络思政教育发展趋势和创新方向<br>
+                                    <strong>实践探索：</strong>形成多项可行性建议
+                                </td>
+                                <td><span class="status-badge status-completed">已完成</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
@@ -265,59 +279,48 @@
                     <p class="content-subtitle">展示四个学习小组的团队风貌和学习成果</p>
                 </div>
                 <div class="content-body">
-                    <div class="group-grid">
-                        <div class="group-card">
-                            <div class="group-header">
-                                <div class="group-number">第一小组</div>
-                                <div class="group-leader">组长：游毅文</div>
-                            </div>
-                            <div class="group-body">
-                                <div class="group-motto">"学思践悟，知行合一"</div>
-                                <div class="group-description">
-                                    第一小组由来自不同院系的11名辅导员组成，大家在培训中积极参与，认真学习，展现了良好的精神风貌。小组负责7月19日培训内容的简报工作，全体成员通力合作，高质量完成了任务。
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="group-card">
-                            <div class="group-header">
-                                <div class="group-number">第二小组</div>
-                                <div class="group-leader">组长：谢楠</div>
-                            </div>
-                            <div class="group-body">
-                                <div class="group-motto">"凝心聚力，共创未来"</div>
-                                <div class="group-description">
-                                    第二小组成员来自各个学院，专业背景多元，在培训中充分发挥各自优势，积极参与讨论和交流。小组负责7月20日培训内容的简报工作，以严谨的态度和创新的思维完成了任务。
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="group-card">
-                            <div class="group-header">
-                                <div class="group-number">第三小组</div>
-                                <div class="group-leader">组长：郑小苗</div>
-                            </div>
-                            <div class="group-body">
-                                <div class="group-motto">"砥砺前行，不负韶华"</div>
-                                <div class="group-description">
-                                    第三小组成员团结协作，思想活跃，在培训中表现出色。小组负责7月21日培训内容的简报工作，通过精心记录和生动描述，全面展现了现场教学的收获和体会。
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="group-card">
-                            <div class="group-header">
-                                <div class="group-number">第四小组</div>
-                                <div class="group-leader">组长：王慧瑶</div>
-                            </div>
-                            <div class="group-body">
-                                <div class="group-motto">"立德树人，铸魂育才"</div>
-                                <div class="group-description">
-                                    第四小组成员思想深刻，表达能力强，在培训中积极思考和发言。小组负责7月22日培训内容的简报工作，通过细致观察和深入思考，生动记录了培训活动的精彩瞬间。
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- 小组风采表格 -->
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 120px;">小组名称</th>
+                                <th style="width: 120px;">组长</th>
+                                <th style="width: 200px;">小组口号</th>
+                                <th>小组介绍</th>
+                                <th style="width: 150px;">负责任务</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>第一小组</strong></td>
+                                <td>游毅文</td>
+                                <td><span class="status-badge status-highlight">"学思践悟，知行合一"</span></td>
+                                <td>第一小组由来自不同院系的11名辅导员组成，大家在培训中积极参与，认真学习，展现了良好的精神风貌。全体成员通力合作，高质量完成了任务。</td>
+                                <td>7月19日培训内容的简报工作</td>
+                            </tr>
+                            <tr>
+                                <td><strong>第二小组</strong></td>
+                                <td>谢楠</td>
+                                <td><span class="status-badge status-highlight">"凝心聚力，共创未来"</span></td>
+                                <td>第二小组成员来自各个学院，专业背景多元，在培训中充分发挥各自优势，积极参与讨论和交流。以严谨的态度和创新的思维完成了任务。</td>
+                                <td>7月20日培训内容的简报工作</td>
+                            </tr>
+                            <tr>
+                                <td><strong>第三小组</strong></td>
+                                <td>郑小苗</td>
+                                <td><span class="status-badge status-highlight">"砥砺前行，不负韶华"</span></td>
+                                <td>第三小组成员团结协作，思想活跃，在培训中表现出色。通过精心记录和生动描述，全面展现了现场教学的收获和体会。</td>
+                                <td>7月21日培训内容的简报工作</td>
+                            </tr>
+                            <tr>
+                                <td><strong>第四小组</strong></td>
+                                <td>王慧瑶</td>
+                                <td><span class="status-badge status-highlight">"立德树人，铸魂育才"</span></td>
+                                <td>第四小组成员思想深刻，表达能力强，在培训中积极思考和发言。通过细致观察和深入思考，生动记录了培训活动的精彩瞬间。</td>
+                                <td>7月22日培训内容的简报工作</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
@@ -436,62 +439,62 @@
                     <p class="content-subtitle">记录培训班精彩瞬间和美好回忆</p>
                 </div>
                 <div class="content-body">
-                    <div class="photo-gallery">
-                        <div class="photo-item">
-                            <img src="https://via.placeholder.com/400x300/c12c20/ffffff?text=开班仪式" 
-                                 alt="开班仪式现场，全体学员齐聚一堂"
-                                 loading="lazy">
-                            <div class="photo-overlay">
-                                <div class="photo-title">开班仪式</div>
-                                <div class="photo-description">培训班正式开班，全体学员齐聚一堂</div>
-                            </div>
-                        </div>
-                        <div class="photo-item">
-                            <img src="https://via.placeholder.com/400x300/0984e3/ffffff?text=专题讲座" 
-                                 alt="专家学者为学员们带来精彩讲座"
-                                 loading="lazy">
-                            <div class="photo-overlay">
-                                <div class="photo-title">专题讲座</div>
-                                <div class="photo-description">专家学者为学员们带来精彩讲座</div>
-                            </div>
-                        </div>
-                        <div class="photo-item">
-                            <img src="https://via.placeholder.com/400x300/00b894/ffffff?text=分组讨论" 
-                                 alt="学员们积极参与小组讨论交流"
-                                 loading="lazy">
-                            <div class="photo-overlay">
-                                <div class="photo-title">分组讨论</div>
-                                <div class="photo-description">学员们积极参与小组讨论交流</div>
-                            </div>
-                        </div>
-                        <div class="photo-item">
-                            <img src="https://via.placeholder.com/400x300/e17055/ffffff?text=现场教学" 
-                                 alt="参观袁庚生平展，感受改革开放历程"
-                                 loading="lazy">
-                            <div class="photo-overlay">
-                                <div class="photo-title">现场教学</div>
-                                <div class="photo-description">参观袁庚生平展，感受改革开放历程</div>
-                            </div>
-                        </div>
-                        <div class="photo-item">
-                            <img src="https://via.placeholder.com/400x300/fdcb6e/ffffff?text=校园参观" 
-                                 alt="参观中山大学深圳校区美丽校园"
-                                 loading="lazy">
-                            <div class="photo-overlay">
-                                <div class="photo-title">校园参观</div>
-                                <div class="photo-description">参观中山大学深圳校区美丽校园</div>
-                            </div>
-                        </div>
-                        <div class="photo-item">
-                            <img src="https://via.placeholder.com/400x300/74b9ff/ffffff?text=党史学习" 
-                                 alt="深圳市党史馆参观学习"
-                                 loading="lazy">
-                            <div class="photo-overlay">
-                                <div class="photo-title">党史学习</div>
-                                <div class="photo-description">深圳市党史馆参观学习</div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- 图片集锦表格 -->
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 150px;">活动类型</th>
+                                <th style="width: 200px;">活动名称</th>
+                                <th>活动描述</th>
+                                <th style="width: 120px;">参与对象</th>
+                                <th style="width: 100px;">状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>🎉 开班仪式</strong></td>
+                                <td>培训班开班典礼</td>
+                                <td>培训班正式开班，全体学员齐聚一堂，共同开启学习之旅</td>
+                                <td>全体学员</td>
+                                <td><span class="status-badge status-completed">已举办</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>📚 专题讲座</strong></td>
+                                <td>专家学者精彩讲座</td>
+                                <td>邀请知名专家学者为学员们带来前沿理论和实践案例分享</td>
+                                <td>全体学员</td>
+                                <td><span class="status-badge status-completed">已举办</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>💬 分组讨论</strong></td>
+                                <td>小组交流研讨</td>
+                                <td>学员们积极参与小组讨论交流，分享经验，碰撞思想火花</td>
+                                <td>各学习小组</td>
+                                <td><span class="status-badge status-completed">已举办</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>🏤️ 现场教学</strong></td>
+                                <td>袁庚生平展参观</td>
+                                <td>参观袁庚生平展，感受改革开放历程，学习改革精神</td>
+                                <td>全体学员</td>
+                                <td><span class="status-badge status-completed">已举办</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>🏦 校园参观</strong></td>
+                                <td>中山大学深圳校区</td>
+                                <td>参观中山大学深圳校区美丽校园，了解现代化教育设施</td>
+                                <td>全体学员</td>
+                                <td><span class="status-badge status-completed">已举办</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>🎓 党史学习</strong></td>
+                                <td>深圳市党史馆学习</td>
+                                <td>深圳市党史馆参观学习，了解党的光辉历程和深圳发展史</td>
+                                <td>全体学员</td>
+                                <td><span class="status-badge status-completed">已举办</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
@@ -505,29 +508,109 @@
                     <p class="content-subtitle">全面总结培训成果和学员收获</p>
                 </div>
                 <div class="content-body">
-                    <div class="report-content">
-                        <p>2025年7月19日至23日，广东第二师范学院"智慧党建引领 网络思政赋能"辅导员队伍赋能提升培训班在中山大学高校思想政治工作研修中心(深圳校区)成功举办。本次培训共有44名辅导员参加，通过专题讲座、案例分析、现场教学、实操演练等多种形式，全面提升了我校思政干部队伍的政治素养、业务能力和工作水平。</p>
-                        
-                        <div class="highlight-box">
-                            <h4><i class="fas fa-trophy" aria-hidden="true"></i>培训亮点</h4>
-                            <p>本次培训紧紧围绕"智慧党建引领 网络思政赋能"主题，聚焦新时代辅导员队伍建设、网络思想政治工作、家庭教育协同育人等热点问题，通过理论学习与实践考察相结合，有效提升了辅导员队伍的专业素养和工作能力。</p>
-                        </div>
-                        
-                        <h4><i class="fas fa-chart-bar" aria-hidden="true"></i>培训成效</h4>
-                        <p>培训期间，学员们认真学习、积极思考、深入交流，展现了良好的学习态度和精神风貌。通过此次培训，大家进一步明确了新时代辅导员的职责使命，掌握了网络思政工作的新理念新方法，为今后更好地开展学生思想政治教育工作奠定了坚实基础。</p>
-                        
-                        <h4><i class="fas fa-lightbulb" aria-hidden="true"></i>主要收获</h4>
-                        <ul style="margin-left: 2rem; margin-bottom: 1rem;">
-                            <li>深化了对新时代辅导员队伍建设重要性的认识</li>
-                            <li>掌握了网络思政工作的创新理念和实践方法</li>
-                            <li>增强了家校协同育人的意识和能力</li>
-                            <li>提升了应对突发事件和安全管理的能力</li>
-                            <li>加强了团队协作和交流学习的意识</li>
-                        </ul>
-                        
-                        <h4><i class="fas fa-rocket" aria-hidden="true"></i>未来展望</h4>
-                        <p>培训结束后，全体学员纷纷表示，将把培训中学到的新思路、新方法运用到实际工作中，不断提高思想政治工作水平，为培养德智体美劳全面发展的社会主义建设者和接班人贡献力量。学校将继续加强辅导员队伍建设，为思想政治工作高质量发展提供有力支撑。</p>
-                    </div>
+                    <p style="margin-bottom: 2rem; font-size: 1.1rem; color: #666;">
+                        2025年7月19日至23日，广东第二师范学院"智慧党建引领 网络思政赋能"辅导员队伍赋能提升培训班在中山大学高校思想政治工作研修中心(深圳校区)成功举办。
+                    </p>
+                    
+                    <!-- 培训成果总结表格 -->
+                    <table class="data-table" style="margin-bottom: 2rem;">
+                        <thead>
+                            <tr>
+                                <th colspan="4" style="text-align: center; font-size: 1.2rem; background: #a71e1c;">🏆 培训成果与收获总结</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #f8f9fa;">
+                                <td style="width: 25%; font-weight: bold; color: #c12c20;">📊 基本数据</td>
+                                <td style="width: 25%;">44名参训辅导员</td>
+                                <td style="width: 25%;">5天学习时间</td>
+                                <td style="width: 25%;">4个学习小组</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <!-- 培训亮点表格 -->
+                    <table class="data-table" style="margin-bottom: 2rem;">
+                        <thead>
+                            <tr>
+                                <th style="width: 150px;">亮点类型</th>
+                                <th>具体内容</th>
+                                <th style="width: 100px;">成果</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>🎤 专题讲座</strong></td>
+                                <td>紧紧围绕"智慧党建引领 网络思政赋能"主题，聚焦新时代辅导员队伍建设、网络思想政治工作、家庭教育协同育人等热点问题</td>
+                                <td><span class="status-badge status-completed">成功</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>🏤️ 现场教学</strong></td>
+                                <td>通过理论学习与实践考察相结合，包括袁庚生平展、中山大学校区参观、深圳党史馆学习等</td>
+                                <td><span class="status-badge status-completed">成功</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>💬 分组讨论</strong></td>
+                                <td>有效提升了辅导员队伍的专业素养和工作能力，形成了多项实用性建议</td>
+                                <td><span class="status-badge status-completed">成功</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <!-- 培训收获表格 -->
+                    <table class="data-table" style="margin-bottom: 2rem;">
+                        <thead>
+                            <tr>
+                                <th style="width: 150px;">收获类型</th>
+                                <th>具体描述</th>
+                                <th style="width: 120px;">重要性</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>💡 理论提升</strong></td>
+                                <td>深化了对新时代辅导员队伍建设重要性的认识</td>
+                                <td><span class="status-badge status-highlight">极高</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>🚀 实践方法</strong></td>
+                                <td>掌握了网络思政工作的创新理念和实践方法</td>
+                                <td><span class="status-badge status-highlight">极高</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>🤝 协同育人</strong></td>
+                                <td>增强了家校协同育人的意识和能力</td>
+                                <td><span class="status-badge status-completed">高</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>⚡ 应急能力</strong></td>
+                                <td>提升了应对突发事件和安全管理的能力</td>
+                                <td><span class="status-badge status-completed">高</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>👥 团队协作</strong></td>
+                                <td>加强了团队协作和交流学习的意识</td>
+                                <td><span class="status-badge status-completed">高</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <!-- 未来展望表格 -->
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center; font-size: 1.1rem; background: #0984e3; color: white;">🚀 未来展望与行动计划</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 1.5rem; line-height: 1.8; font-size: 1rem;">
+                                    培训结束后，全体学员纷纷表示，将把培训中学到的新思路、新方法运用到实际工作中，不断提高思想政治工作水平，为培养德智体美劳全面发展的社会主义建设者和接班人贡献力量。<br><br>
+                                    学校将继续加强辅导员队伍建设，为思想政治工作高质量发展提供有力支撑。
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
             
